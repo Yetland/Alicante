@@ -3,7 +3,7 @@ package com.yetland.alicante.algorithm
 object QuickSort {
     @JvmStatic
     fun main(args: Array<String>) {
-        var array: IntArray = intArrayOf(1, 43, 5345, 64, 234, 12, 34, 654, 12, 24, 4, 3, 54, 12, 2, 34, 43)
+        var array: IntArray = intArrayOf(3, 5, 7, 2, 6, 1, 3, 8, 4)
         println("arrayCount = ${array.size}")
         println("before")
         array.forEach {
@@ -11,7 +11,7 @@ object QuickSort {
         }
         println()
         println("============================================================================")
-        array = quickSort(array, 0, array.size - 1)
+        array = quickSort2(array, 0, array.size - 1)
         println("after")
         array.forEach {
             print("$it , ")
@@ -53,5 +53,38 @@ object QuickSort {
         val temp = array[i]
         array[i] = array[j]
         array[j] = temp
+    }
+
+
+    // 取基准值，然后比较
+    private fun quickSort2(array: IntArray, start: Int, end: Int): IntArray {
+
+        if (start >= end) {
+            return array
+        }
+        val pivotValue = array[start]
+        var left = start
+        var right = end
+
+        while (left < right) {
+            while (left < right) {
+                if (array[right] < pivotValue) {
+                    array[left] = array[right]
+                    break
+                }
+                right--
+            }
+            while (left < right) {
+                if (array[left] > pivotValue) {
+                    array[right] = array[left]
+                    break
+                }
+                left++
+            }
+        }
+        array[left] = pivotValue
+        quickSort2(array, start, right - 1)
+        quickSort2(array, right + 1, end)
+        return array
     }
 }

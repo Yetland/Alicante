@@ -22,5 +22,12 @@ public class StaticTest {
             int y = 6;
             System.out.print("alicante = " + a + " , y = " + y);
         }
+
+        private void m() {
+            int i = 0;
+            for (; ; i--) {
+
+            }
+        }
     }
 }
