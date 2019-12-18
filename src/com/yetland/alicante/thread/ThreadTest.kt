@@ -4,19 +4,13 @@ object ThreadTest {
 
     @JvmStatic
     fun main(args: Array<String>) {
-        val thread = Thread(Runnable {
-            print(System.currentTimeMillis())
-            println("run")
-        })
+        val thread = ThreadInternal()
         thread.start()
-        thread.join(3000)
-        print(System.currentTimeMillis())
-        println("ok")
-//        try {
-//            thread.interrupt()
-//            println("interrupt")
-//        } catch (e: Throwable) {
-//            e.printStackTrace()
-//        }
+    }
+
+    internal class ThreadInternal : Thread() {
+        override fun run() {
+            println("thread run")
+        }
     }
 }
