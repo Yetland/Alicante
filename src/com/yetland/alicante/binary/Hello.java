@@ -7,11 +7,14 @@ public class Hello {
         System.out.print("15 右移：" + (-15 >> 2) + "\n");
         System.out.print("15 无差别右移：" + (15 >>> 2) + "\n");
         System.out.print("-15 无差别右移：" + (-15 >>> 2) + "\n");
-        System.out.print("~：" + ~0 + "\n");
+        System.out.print("~：" + ~1 + "\n");
         // 0011
         // 1111
 
         System.out.print("fff =" + (14 >> 2));
         System.out.print("fff =" + (-14 >> 2));
+        int a = 1;
+        int b = 2;
+        int z = a | b;
     }
 }
